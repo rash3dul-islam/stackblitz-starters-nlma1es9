@@ -107,13 +107,13 @@ export class App {
   isDropdownOpen = false;
   searchQuery: string = '';
 
-  languages = ['en-US', 'de-DE'];
+  languages = ['en-US', 'de-DE','fr-FR','it-IT'];
 
   constructor(private sanitizer: DomSanitizer) {
     this.getProcessedJson().subscribe((res) => {
       console.log(res);
       this.emailTemplates = res.filter(
-        (x) => x.Language == 'en-US' || x.Language == 'de-DE'
+        (x) => x.Language == 'en-US' || x.Language == 'de-DE' || x.Language == 'fr-FR' || x.Language == 'it-IT'
       );
 
       this.data = this.emailTemplates.filter((x) => x.Language == 'en-US');
@@ -161,13 +161,13 @@ export class App {
   getButtonColor(language: string): string {
     switch (language) {
       case 'en-US':
-        return '#1E90FF'; // DodgerBlue
-      case 'Spanish':
-        return '#FF6347'; // Tomato
+        return '#08712dff'; // DodgerBlue
+      case 'fr-FR':
+        return '#2fa4ecff'; // Tomato
       case 'de-DE':
         return '#32CD32'; // LimeGreen
-      case 'German':
-        return '#FFD700'; // Gold
+      case 'it-IT':
+        return '#d29209ff'; // Gold
       // Add more languages and their corresponding colors as needed
       default:
         return '#4CAF50'; // Default to green
